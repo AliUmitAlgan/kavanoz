@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Bebinin Yıl Dönümü Kavanozu | Elif'im İçin 150 Neden</title>
+  
+  <!-- iOS PWA & Mobil Tam Ekran Desteği -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bebinin Kavanozu">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#15080A">
+  
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="shortcut icon" href="apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            handwriting: ['"Dancing Script"', '"Caveat"', 'cursive'],
+            notes: ['"Caveat"', '"Dancing Script"', 'cursive'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            romantic: {
+              cream: '#FDFBF7',
+              parchment: '#F8F3E6',
+              rose: '#E8A598',
+              rosedark: '#C56D60',
+              rosehover: '#b55a4e',
+              blush: '#FCEFEB',
+              gold: '#D4AF37',
+              warmgold: '#F4C430',
+              deepwine: '#4A1D24',
+              softdark: '#2A1F21',
+              cardbg: '#FFFDF9'
+            }
+          },
+          boxShadow: {
+            'glow-gold': '0 0 30px rgba(244, 196, 48, 0.4)',
+            'glow-rose': '0 0 35px rgba(232, 165, 152, 0.45)',
+            'paper': '0 20px 45px -10px rgba(74, 29, 36, 0.22), 0 2px 8px rgba(0,0,0,0.06)',
+            'jar': 'inset 0 0 35px rgba(255, 255, 255, 0.7), inset -10px 0 25px rgba(220, 160, 150, 0.25), 0 25px 45px rgba(74, 29, 36, 0.16)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    input, textarea {
+      user-select: text;
+    }
+
+    /* Cam Kavanoz Efekti */
+    .glass-jar {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 240, 235, 0.3) 100%);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 2.5px solid rgba(255, 255, 255, 0.75);
+    }
+
+    /* Kavanoz Sallantı Animasyonu */
+    @keyframes jarRumble {
+      0% { transform: rotate(0deg) scale(1); }
+      15% { transform: rotate(-5deg) scale(1.03); }
+      30% { transform: rotate(5deg) scale(1.04); }
+      45% { transform: rotate(-4deg) scale(1.02); }
+      60% { transform: rotate(4deg) scale(1.03); }
+      75% { transform: rotate(-2deg) scale(1.01); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .shake-jar {
+      animation: jarRumble 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    /* Mantar Kapak Fırlama Hissi */
+    @keyframes corkBounce {
+      0% { transform: translateY(0); }
+      40% { transform: translateY(-38px) rotate(9deg) scale(1.04); }
+      75% { transform: translateY(-8px) rotate(-3deg); }
+      100% { transform: translateY(0) rotate(0deg) scale(1); }
+    }
+    .cork-animated {
+      animation: corkBounce 0.75s ease-out;
+    }
+
+    /* Parşömen & Kağıt Dokusu */
+    .parchment-texture {
+      background-color: #FBF7EE;
+      background-image: 
+        radial-gradient(#d8cbba 0.8px, transparent 0.8px), 
+        radial-gradient(#e5d8c7 0.8px, #FBF7EE 0.8px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+    }
+
+    /* Mum Işığı Modu */
+    .candlelight-mode {
+      background: radial-gradient(circle at center, #271417 0%, #15080A 100%) !important;
+      color: #F8EFE4 !important;
+    }
+    .candlelight-mode .ambient-glow {
+      opacity: 0.95;
+      background: radial-gradient(circle, rgba(255, 175, 75, 0.4) 0%, rgba(210, 75, 60, 0.1) 70%) !important;
+    }
+    
+    /* Mum Işığı Modunda Sadece Sayfa Elemanları (Header, Main, Footer) */
+    .candlelight-mode header h1,
+    .candlelight-mode header #headerTitle {
+      color: #FFE5D9 !important;
+      text-shadow: 0 0 16px rgba(255, 215, 200, 0.35);
+    }
+    .candlelight-mode header #headerSubtitle {
+      color: #F4B8AF !important;
+    }
+    .candlelight-mode header button,
+    .candlelight-mode #openNotebookBtn {
+      background-color: rgba(54, 28, 35, 0.9) !important;
+      color: #F8EFE4 !important;
+      border-color: rgba(232, 165, 152, 0.35) !important;
+    }
+    .candlelight-mode #romanticQuote {
+      color: #FFB4A2 !important;
+      text-shadow: 0 0 14px rgba(255, 180, 162, 0.45);
+    }
+    .candlelight-mode main p {
+      color: #F0D5D0 !important;
+    }
+    .candlelight-mode main #readProgressText {
+      color: #F0D5D0 !important;
+    }
+    .candlelight-mode footer p {
+      color: rgba(248, 239, 228, 0.65) !important;
+    }
+
+    /* Mum Işığı Filtre Butonları */
+    .candlelight-mode .filter-chip:not(.active) {
+      background-color: rgba(48, 25, 31, 0.85) !important;
+      color: #F8D5CE !important;
+      border-color: rgba(232, 165, 152, 0.35) !important;
+    }
+    .candlelight-mode .filter-chip.active {
+      background: linear-gradient(135deg, #B83850 0%, #7E1E2F 100%) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 16px rgba(232, 165, 152, 0.45) !important;
+    }
+
+    /* PARŞÖMEN AŞK NOTU KARTI (HER İKİ MODDA DA MÜKEMMEL OKUNABİLİR VE ŞIK) */
+    #noteCard {
+      background-color: #FBF7EE !important;
+      color: #381219 !important;
+    }
+    .candlelight-mode #noteCard {
+      background-color: #FAF4E6 !important;
+      box-shadow: 0 0 45px rgba(244, 196, 48, 0.32), 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+    }
+    #noteCard #modalCategoryBadge {
+      background-color: rgba(232, 165, 152, 0.35) !important;
+      color: #4A1D24 !important;
+      border: 1px solid rgba(197, 109, 96, 0.5) !important;
+    }
+    #noteCard #modalNoteIndex {
+      color: #6E333C !important;
+    }
+    #noteCard #modalNoteText {
+      color: #381219 !important;
+      font-weight: 600;
+      text-shadow: none !important;
+    }
+    #noteCard #modalFavBtn {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      color: #4A1D24 !important;
+      border: 1px solid rgba(232, 165, 152, 0.5) !important;
+    }
+    #noteCard #modalFavBtn.is-favorited {
+      background-color: #FFE4E6 !important;
+      border-color: #F43F5E !important;
+      color: #9F1239 !important;
+    }
+    #noteCard #modalFavBtn.is-favorited #modalFavText {
+      color: #9F1239 !important;
+    }
+    #noteCard #modalFavText {
+      color: #4A1D24 !important;
+      font-weight: 600;
+    }
+    #noteCard #modalNextBtn {
+      background-color: #FCEFEB !important;
+      color: #4A1D24 !important;
+      font-weight: 600;
+      border: 1px solid rgba(232, 165, 152, 0.5) !important;
+    }
+    #noteCard #modalCloseBtn {
+      background-color: #4A1D24 !important;
+      color: #FFFFFF !important;
+      border: none !important;
+    }
+
+    /* YÜKLEME MODALI TEMA UYUMU (MUM IŞIĞI & ROMANTİK TONLAR) */
+    .install-card-theme {
+      background: radial-gradient(circle at top, #2D1418 0%, #1A090C 100%) !important;
+      color: #F8EFE4 !important;
+      box-shadow: 0 0 45px rgba(244, 196, 48, 0.25), 0 25px 60px rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* ANI DEFTERİ ÇEKMECESİ (MUM IŞIĞI MODU UYUMU) */
+    #notebookDrawer {
+      background-color: #241114 !important;
+      color: #F8EFE4 !important;
+      border-color: rgba(232, 165, 152, 0.35) !important;
+    }
+    #notebookDrawer h2 {
+      color: #FFE5D9 !important;
+      text-shadow: 0 0 12px rgba(255, 229, 217, 0.25);
+    }
+    #notebookDrawer p {
+      color: #F4B8AF !important;
+    }
+    #notebookDrawer #closeNotebookBtn {
+      color: #E8A598 !important;
+    }
+    #notebookDrawer #closeNotebookBtn:hover {
+      color: #FFE5D9 !important;
+    }
+    #notebookNotesList .bg-white {
+      background-color: #2F161B !important;
+      color: #F8EFE4 !important;
+      border: 1px solid rgba(232, 165, 152, 0.3) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+    #notebookNotesList p.font-serif {
+      color: #FFF0EA !important;
+    }
+    #notebookNotesList .text-romantic-softdark\/65 {
+      color: #E8A598 !important;
+    }
+    #tabShowFavorites.bg-romantic-rosedark {
+      background: linear-gradient(135deg, #B83850 0%, #7E1E2F 100%) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 12px rgba(232, 165, 152, 0.35);
+    }
+    #tabShowOpened {
+      background-color: #34181E !important;
+      color: #E8A598 !important;
+      border-color: rgba(232, 165, 152, 0.3) !important;
+    }
+    #tabShowOpened.bg-romantic-rosedark {
+      background: linear-gradient(135deg, #B83850 0%, #7E1E2F 100%) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* KAVANOZ ETİKETİ */
+    #jarContainer .bg-romantic-parchment {
+      background-color: #F8EFE2 !important;
+      color: #4A1D24 !important;
+    }
+    #jarTagText {
+      color: #4A1D24 !important;
+    }
+
+    /* Daktilo İmleç Yanıp Sönmesi */
+    .typewriter-cursor::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 2px;
+      color: #C56D60;
+      animation: blinkCursor 0.8s infinite;
+    }
+    @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Özel Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E8A598;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Peri Işıkları Salınımı */
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.85; filter: drop-shadow(0 0 6px #ffe57f); }
+      50% { transform: scale(1.35); opacity: 1; filter: drop-shadow(0 0 14px #ffd700); }
+    }
+    .fairy-glow {
+      animation: gentlePulse 2.8s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="candlelight-mode bg-romantic-cream text-romantic-softdark font-sans min-h-screen flex flex-col justify-between transition-colors duration-700 overflow-x-hidden relative">
+
+  <!-- 2026 • 4. YIL DÖNÜMÜ GİRİŞ AÇILIŞ ANİMASYONU VE EFEKTİ -->
+  <div id="anniversaryIntroOverlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#15080A] transition-all duration-1000 ease-out select-none">
+    <!-- Arka Plan Mum Işığı Atmosferi & Parıltılar -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(184,56,80,0.38)_0%,rgba(21,8,10,0.98)_75%)] pointer-events-none"></div>
+    <div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-romantic-warmgold/15 blur-3xl pointer-events-none animate-pulse"></div>
+
+    <!-- Ortadaki Şık 4. Yıl Kutlama Kartı -->
+    <div id="anniversaryIntroCard" class="relative z-10 max-w-sm sm:max-w-md w-full text-center p-7 sm:p-9 rounded-3xl border border-romantic-rose/40 shadow-[0_0_60px_rgba(244,196,48,0.25)] bg-gradient-to-b from-[#2D1418]/95 via-[#230E12]/95 to-[#160709]/95 backdrop-blur-md transform transition-all duration-700 scale-100">
+      
+      <!-- 4. Yıl Mum Işığı Mühür Rozeti -->
+      <div class="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-romantic-deepwine via-romantic-rosedark to-amber-400 blur-sm animate-pulse"></div>
+        <div class="relative w-18 h-18 rounded-full border-2 border-amber-300/70 bg-[#35141B] flex flex-col items-center justify-center shadow-inner">
+          <span class="text-[10px] text-amber-200/90 font-serif tracking-widest font-bold">2026</span>
+          <span class="font-serif text-2xl font-bold text-[#FFE5D9] leading-none my-0.5">4</span>
+          <span class="text-[9px] uppercase tracking-wider text-rose-300 font-semibold">Yılımız</span>
+        </div>
+      </div>
+
+      <!-- Romantik Rozet -->
+      <div class="inline-block px-3.5 py-1 rounded-full bg-romantic-rose/15 border border-romantic-rose/30 text-xs font-medium text-amber-200 tracking-wider mb-2.5">
+        ✨ 2022 — 2026 • 4. Yıl Dönümümüz ✨
+      </div>
+
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#FFE5D9] mb-3 leading-snug">
+        4. Yılımız Kutlu Olsun Bebim 💕
+      </h2>
+
+      <p class="font-serif italic text-xs sm:text-sm text-[#F4B8AF] leading-relaxed mb-6 px-1">
+        "Dört koca yıl, sayısız güzel anı ve her gün yeniden aşık olduğum o güzel kalbin... Sana olan sevgim tek bir güne değil, her güne sığsın diye hazırlandı 🕯️"
+      </p>
+
+      <!-- Aksiyon Butonu: Kavanozu Aç -->
+      <button id="enterJarBtn" class="group relative w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-romantic-rosedark via-romantic-deepwine to-romantic-rosedark text-white font-medium text-sm sm:text-base shadow-[0_0_25px_rgba(244,196,48,0.35)] hover:shadow-[0_0_35px_rgba(244,196,48,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer border border-amber-300/40">
+        <span class="group-hover:rotate-12 transition-transform text-lg">💌</span>
+        <span class="font-serif tracking-wide font-bold">Kavanozu Aç</span>
+        <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-sans">150 Neden</span>
+      </button>
+
+      <p class="text-[10px] text-[#E8A598]/65 mt-3 font-medium">
+        (Dokun ve sana özel hazırlanan kavanozu keşfet ✨)
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Arka Plan Yumuşak Ambiyans Işığı -->
+  <div id="ambientBackdrop" class="fixed inset-0 pointer-events-none transition-all duration-1000 z-0">
+    <div class="ambient-glow absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[540px] h-[340px] sm:h-[540px] bg-romantic-rose/25 rounded-full blur-[100px] transition-all duration-700"></div>
+  </div>
+
+  <!-- Arka Plan Romantik MP3 Çalar -->
+  <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+  <!-- Uçuşan Kalpler & Kıvılcımlar Tuvali -->
+  <canvas id="sparkleCanvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+
+  <!-- Üst Bar: Başlık, Müzik, Mum Işığı, İsmi Düzenle & Defter -->
+  <header class="relative z-20 w-full max-w-2xl mx-auto px-4 pt-4 sm:pt-6 pb-2 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <span id="headerAnniversaryIcon" class="text-2xl animate-pulse cursor-pointer hover:scale-125 transition" title="4. Yıl Dönümü Kartı">💌</span>
+      <div>
+        <h1 class="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-romantic-deepwine">
+          Bebinin Yıl Dönümü Kavanozu
+        </h1>
+        <p class="text-[11px] sm:text-xs text-romantic-rosedark font-medium tracking-wide">Elif'im için yazılan <span id="headerTotalNotes" class="font-bold">150</span> güzel neden 💕 • 4. Yılımız (2026)</p>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-1.5 sm:space-x-2">
+      <!-- Telefona / iPhone'a Uygulama Olarak Yükle -->
+      <button id="installAppBtn" aria-label="Telefona Yükle" class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-white/85 border border-romantic-rose/40 text-xs text-romantic-deepwine shadow-sm hover:bg-romantic-blush flex items-center gap-1.5 transition active:scale-95" title="Telefona Uygulama Olarak Yükle">
+        <span>📲</span>
+        <span class="hidden sm:inline text-xs font-medium">Yükle</span>
+      </button>
+
+      <!-- Ambiyans Ses Toggle -->
+      <button id="soundToggleBtn" aria-label="Müzik ve Ses Efekti" class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-white/85 border border-romantic-rose/40 text-xs text-romantic-deepwine shadow-sm hover:bg-romantic-blush flex items-center gap-1.5 transition active:scale-95" title="Romantik Melodi & Müzik">
+        <span id="soundIcon">🎵</span>
+        <span id="soundText" class="hidden sm:inline text-xs font-medium">Melodi</span>
+      </button>
+
+      <!-- Gündüz / Mum Işığı Modu (Varsayılan Açık) -->
+      <button id="candlelightToggleBtn" aria-label="Gündüz / Mum Işığı Modu" class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-white/85 border border-romantic-rose/40 text-xs text-romantic-deepwine shadow-sm hover:bg-romantic-blush flex items-center gap-1.5 transition active:scale-95" title="Gündüz / Mum Işığı Modu">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText" class="hidden sm:inline text-xs font-medium">Gündüz</span>
+      </button>
+
+      <!-- Defter / Favoriler Butonu -->
+      <button id="openNotebookBtn" aria-label="Anı Defteri" class="p-2 rounded-full bg-romantic-rose/25 text-romantic-deepwine hover:bg-romantic-rose/35 transition relative active:scale-95 shadow-sm" title="Anı Defteri & Favoriler">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <span id="favBadgeCount" class="absolute -top-1 -right-1 bg-romantic-rosedark text-white font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Ana Bölüm -->
+  <main class="relative z-20 flex-1 flex flex-col items-center justify-center max-w-xl mx-auto px-4 py-1 w-full text-center">
+    
+    <!-- Romantik Alıntı & Yönlendirme -->
+    <div class="mb-2 space-y-1">
+      <p id="romanticQuote" class="font-serif italic text-lg sm:text-xl text-romantic-rosedark transition-opacity duration-500">
+        "Gülüşünde saklı en güzel hikayem..."
+      </p>
+      <p class="text-xs sm:text-sm text-romantic-softdark/75">
+        Kavanoza dokun ya da şu anki hissine göre bir kategori seçip notunu aç.
+      </p>
+    </div>
+
+    <!-- Mood / Kategori Kutucukları (Düzenli Izgara - Sağa Kaydırma Yok) -->
+    <div class="w-full max-w-md mx-auto my-1.5 px-2">
+      <!-- Ana Karışık Kutucuk -->
+      <button class="filter-chip active w-full mb-1.5 py-1.5 px-3 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-sm bg-romantic-deepwine text-white" data-category="all">
+        <span>✨</span>
+        <span>Hepsinden Karışık (Tüm Kavanoz)</span>
+      </button>
+
+      <!-- 6 Belirli Kategori Kutucuğu (Mobil 2 sütun, PC 3 sütun) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+        <button class="filter-chip py-2 px-2 rounded-xl text-[11px] font-medium transition bg-white/85 hover:bg-white text-romantic-softdark border border-romantic-rose/35 flex items-center justify-center gap-1.5 shadow-sm" data-category="bebi">
+          <span>🧸</span>
+          <span class="truncate">Bebi</span>
+        </button>
+        <button class="filter-chip py-2 px-2 rounded-xl text-[11px] font-medium transition bg-white/85 hover:bg-white text-romantic-softdark border border-romantic-rose/35 flex items-center justify-center gap-1.5 shadow-sm" data-category="cici">
+          <span>🎀</span>
+          <span class="truncate">Cici</span>
+        </button>
+        <button class="filter-chip py-2 px-2 rounded-xl text-[11px] font-medium transition bg-white/85 hover:bg-white text-romantic-softdark border border-romantic-rose/35 flex items-center justify-center gap-1.5 shadow-sm" data-category="sekerlik">
+          <span>🍬</span>
+          <span class="truncate">Şekerlik</span>
+        </button>
+        <button class="filter-chip py-2 px-2 rounded-xl text-[11px] font-medium transition bg-white/85 hover:bg-white text-romantic-softdark border border-romantic-rose/35 flex items-center justify-center gap-1.5 shadow-sm" data-category="guzellik">
+          <span>💖</span>
+          <span class="truncate">Güzellik</span>
+        </button>
+        <button class="filter-chip py-2 px-2 rounded-xl text-[11px] font-medium transition bg-white/85 hover:bg-white text-romantic-softdark border border-romantic-rose/35 flex items-center justify-center gap-1.5 shadow-sm" data-category="hosluk">
+          <span>🌷</span>
+          <span class="truncate">Hoşluk</span>
+        </button>
+        <button class="filter-chip py-2 px-2 rounded-xl text-[11px] font-medium transition bg-white/85 hover:bg-white text-romantic-softdark border border-romantic-rose/35 flex items-center justify-center gap-1.5 shadow-sm" data-category="iyimserlik">
+          <span>☀️</span>
+          <span class="truncate">İyimserlik</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- İnteraktif Cam Kavanoz -->
+    <div class="relative w-64 sm:w-72 h-80 sm:h-92 my-1 flex flex-col items-center justify-end group cursor-pointer" id="jarContainer" title="Kavanoza dokun ve aşk notunu aç!">
+      
+      <!-- Mantar Kapak (Cork Stopper) -->
+      <div id="corkStopper" class="w-36 sm:w-40 h-9 rounded-t-xl bg-gradient-to-r from-[#ab7f56] via-[#c4986b] to-[#996e47] border-2 border-[#805530] shadow-md relative z-30 transition-transform duration-300">
+        <!-- Mantar dokusu -->
+        <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#5a391c_1.2px,transparent_1.2px)] [background-size:6px_6px]"></div>
+        <!-- Kırmızı saten boyun kurdelesi ve fiyonk simülasyonu -->
+        <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-42 h-3 bg-gradient-to-r from-[#8b263e] via-[#b23250] to-[#8b263e] rounded-full shadow z-30 flex items-center justify-center">
+          <div class="w-3 h-3 rounded-full bg-[#fde047]/60 shadow-[0_0_6px_#fde047]"></div>
+        </div>
+      </div>
+
+      <!-- Asılı Vintage Etiket (Hanging Tag) -->
+      <div class="absolute top-12 -left-3 sm:-left-4 z-40 transform -rotate-12 hover:rotate-0 transition-transform duration-300 pointer-events-none">
+        <div class="bg-romantic-parchment text-romantic-deepwine px-3 py-1.5 rounded-md border border-romantic-rose/50 shadow-md text-[11px] font-serif font-bold tracking-wider flex items-center gap-1">
+          <span>🏷️</span>
+          <span id="jarTagText">Bebinin Kavanozu • 4. Yıl (<span id="jarTagCount">150 Kaldı</span>)</span>)</span> Mektup)</span>
+        </div>
+        <div class="w-7 h-5 border-l-2 border-t-2 border-[#8b263e] ml-4 -mt-1 opacity-70"></div>
+      </div>
+
+      <!-- Cam Kavanoz Gövdesi -->
+      <div id="jarBody" class="glass-jar shadow-jar relative w-60 sm:w-68 h-70 sm:h-76 rounded-b-[48px] rounded-t-[16px] flex flex-col justify-end p-4 overflow-hidden transition-all duration-300">
+        
+        <!-- Cam Üzeri Işık Yansımaları -->
+        <div class="absolute top-3 left-4 w-4 h-48 bg-gradient-to-b from-white/80 via-white/20 to-transparent rounded-full blur-[1px] pointer-events-none"></div>
+        <div class="absolute top-5 right-4 w-1.5 h-36 bg-white/40 rounded-full blur-[0.5px] pointer-events-none"></div>
+
+        <!-- Peri Işıkları (Fairy Lights) Parlamaları -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="fairy-glow absolute top-7 left-12 w-2.5 h-2.5 bg-romantic-warmgold rounded-full" style="animation-delay: 0s;"></div>
+          <div class="fairy-glow absolute top-20 right-10 w-3 h-3 bg-amber-200 rounded-full" style="animation-delay: 0.8s;"></div>
+          <div class="fairy-glow absolute bottom-16 left-8 w-2 h-2 bg-yellow-300 rounded-full" style="animation-delay: 1.5s;"></div>
+          <div class="fairy-glow absolute bottom-28 right-12 w-2.5 h-2.5 bg-rose-200 rounded-full" style="animation-delay: 2.1s;"></div>
+          <div class="fairy-glow absolute top-32 left-24 w-2 h-2 bg-amber-100 rounded-full" style="animation-delay: 1.1s;"></div>
+        </div>
+
+        <!-- İçerideki Rengarenk Katlanmış Origami Notlar -->
+        <div id="jarNotesPile" class="relative w-full h-42 flex flex-wrap-reverse items-end justify-center gap-1.5 pb-2">
+          <!-- JS ile dinamik origami kapsülleri doldurulur -->
+        </div>
+
+        <!-- Kavanoz İçi Taban Sıcak Işığı -->
+        <div class="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-romantic-rose/30 to-transparent blur-sm pointer-events-none"></div>
+      </div>
+
+      <!-- Kavanoz Tabanı Yumuşak Gölgesi -->
+      <div class="w-48 h-4 bg-romantic-deepwine/20 rounded-full blur-md -mt-2"></div>
+    </div>
+
+    <!-- Aksiyon Butonu & İlerleme -->
+    <div class="mt-2 flex flex-col items-center gap-2">
+      <button id="drawNoteBtn" class="group relative px-8 py-3.5 rounded-full bg-gradient-to-r from-romantic-deepwine via-romantic-rosedark to-romantic-deepwine text-white font-medium text-sm sm:text-base shadow-lg shadow-romantic-rosedark/35 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2.5">
+        <span class="group-hover:rotate-12 transition-transform text-lg">✨</span>
+        <span id="drawButtonText" class="font-semibold tracking-wide">Kavanozdan Not Çek</span>
+        <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-mono font-bold" id="jarRemainingCount">150 Kaldı</span>
+      </button>
+
+      <!-- İlerleme -->
+      <div class="flex items-center justify-center text-xs text-romantic-softdark/75 mt-1 font-medium">
+        <span id="readProgressText">0 / 150 mektup açıldı • 150 bekliyor 💕</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- POPUP 1: AŞK NOTU OKUMA KARTI (PARŞÖMEN & DAKTİLO EFEKTİ) -->
+  <div id="noteModal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="noteCard" class="parchment-texture w-full max-w-md rounded-2xl p-6 sm:p-8 shadow-paper border border-[#e2d5c3] transform scale-90 translate-y-6 transition-all duration-400 relative flex flex-col">
+      
+      <!-- Dekoratif Damga & Mühür -->
+      <div class="absolute top-4 right-5 text-2xl opacity-70">💌</div>
+      
+      <!-- Kategori Rozeti ve Numara -->
+      <div class="flex items-center gap-2 mb-3">
+        <span id="modalCategoryBadge" class="text-[11px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider bg-romantic-rose/30 text-romantic-deepwine border border-romantic-rose/40">
+          Karakterin & Kalbin
+        </span>
+        <span id="modalNoteIndex" class="text-xs text-romantic-softdark/60 font-serif font-bold">#01</span>
+      </div>
+
+      <!-- Aşk Notu Metni (Daktilo Efektli) -->
+      <div class="my-4 min-h-[140px] flex items-center justify-center text-center px-2">
+        <p id="modalNoteText" class="font-notes text-2xl sm:text-3xl text-romantic-deepwine leading-relaxed tracking-wide select-text">
+          "Bir şeye çocuk gibi heyecanlandığında gözlerinin içinin parlaması..."
+        </p>
+      </div>
+
+      <!-- Alt Bilgi ve Aksiyon Butonları -->
+      <div class="mt-4 pt-4 border-t border-romantic-rosedark/20 flex items-center justify-between text-xs">
+        <!-- Favorileme Butonu -->
+        <button id="modalFavBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 hover:bg-white text-romantic-deepwine border border-romantic-rose/30 transition shadow-sm active:scale-95">
+          <span id="modalFavHeart">🤍</span>
+          <span id="modalFavText" class="font-medium">Favorilerime Ekle</span>
+        </button>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Yeni Not Çek -->
+          <button id="modalNextBtn" title="Kapatmadan Bir Tane Daha Çek" class="px-3 py-1.5 rounded-full bg-romantic-blush text-romantic-deepwine border border-romantic-rose/40 font-medium hover:bg-romantic-rose/30 transition active:scale-95">
+            🎲 Bir Tane Daha
+          </button>
+          <!-- Kapat -->
+          <button id="modalCloseBtn" class="px-3.5 py-1.5 rounded-full bg-romantic-deepwine text-white font-medium hover:bg-romantic-rosedark transition active:scale-95 shadow">
+            Kapat
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: TELEFONA / IPHONE'A YÜKLEME REHBERİ MODALI (MUM IŞIĞI VE ROMANTİK TEMA UYUMLU) -->
+  <div id="iosInstallModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-end sm:items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="install-card-theme rounded-3xl w-full max-w-sm p-6 shadow-2xl relative text-center transform transition-all duration-300 border border-romantic-rose/40">
+      <div class="w-16 h-16 mx-auto mb-3 rounded-2xl shadow-lg overflow-hidden border border-romantic-rose/50 flex items-center justify-center bg-[#34161C]">
+        <img src="apple-touch-icon.png" alt="Bebinin Kavanozu" class="w-full h-full object-cover">
+      </div>
+      <h3 class="font-serif text-xl font-bold text-[#FFE5D9] mb-1">Telefona Uygulama Olarak Yükle 💕</h3>
+      <p class="text-xs text-[#E8A598] mb-4">Bu kavanozu her an yanında taşımak için telefonunun ana ekranına ekleyebilirsin:</p>
+      
+      <!-- iPhone / Safari Adımları -->
+      <div class="space-y-2.5 text-left text-xs bg-[#2E1419]/90 p-4 rounded-2xl border border-romantic-rose/30 mb-4 text-[#F8EFE4]">
+        <div class="flex items-start gap-2.5">
+          <span class="w-5 h-5 rounded-full bg-romantic-rosedark text-white font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-sm">1</span>
+          <span>iPhone Safari'de alttaki <strong>Paylaş</strong> simgesine (<span class="font-bold text-[#FFE5D9]">⎋ / ⤉</span>) dokun.</span>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <span class="w-5 h-5 rounded-full bg-romantic-rosedark text-white font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-sm">2</span>
+          <span>Menüyü aşağı kaydırıp <strong>"Ana Ekrana Ekle"</strong> seçeneğini seç.</span>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <span class="w-5 h-5 rounded-full bg-romantic-rosedark text-white font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-sm">3</span>
+          <span>Sağ üstteki <strong>"Ekle"</strong> butonuna bas. Bitti! 🎉</span>
+        </div>
+      </div>
+      
+      <p class="text-[11px] text-[#E8A598]/70 mb-4 font-medium">(Chrome / Android için: Menüden <strong>"Uygulamayı Yükle"</strong> seçeneğine basabilirsin.)</p>
+
+      <button id="closeIosInstallModalBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-romantic-deepwine via-romantic-rosedark to-romantic-deepwine text-white font-medium text-xs transition shadow-lg hover:shadow-xl active:scale-95">
+        Tamam, Anladım 💕
+      </button>
+    </div>
+  </div>
+
+  <!-- POPUP 4: ANI DEFTERİ (DRAWER) -->
+  <div id="notebookModal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex justify-end opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="notebookDrawer" class="bg-romantic-cream w-full max-w-md h-full shadow-2xl flex flex-col p-6 transform translate-x-full transition-transform duration-400 ease-out border-l border-romantic-rose/30">
+      
+      <!-- Çekmece Başlığı -->
+      <div class="flex items-center justify-between pb-4 border-b border-romantic-rose/20">
+        <div>
+          <h2 class="font-serif text-2xl font-bold text-romantic-deepwine">Anı Defteri</h2>
+          <p class="text-xs text-romantic-softdark/70">Açtığın ve kalbine kaydettiğin tüm nedenler</p>
+        </div>
+        <button id="closeNotebookBtn" class="p-2 text-xl text-romantic-softdark/60 hover:text-romantic-deepwine transition">✕</button>
+      </div>
+
+      <!-- Filtreler: Favoriler vs Keşfedilenler -->
+      <div class="flex gap-2 my-3">
+        <button id="tabShowFavorites" class="text-xs px-3.5 py-1.5 rounded-full font-medium bg-romantic-rosedark text-white shadow-sm transition">❤️ Favorilerim (<span id="favFilterCount">0</span>)</button>
+        <button id="tabShowOpened" class="text-xs px-3.5 py-1.5 rounded-full font-medium bg-white text-romantic-softdark border border-romantic-rose/30 transition">📖 Keşfedilenler (<span id="openedFilterCount">0</span>)</button>
+      </div>
+
+      <!-- Not Listesi -->
+      <div id="notebookNotesList" class="flex-1 overflow-y-auto space-y-3 pr-1 mt-2">
+        <!-- JS ile dinamik doldurulur -->
+      </div>
+
+      <!-- Defter Alt Bilgi & Sıfırlama -->
+      <div class="pt-3 mt-2 border-t border-romantic-rose/25 flex items-center justify-between text-[11px] text-[#E8A598]">
+        <span>💾 Açtığın notlar saklanır</span>
+        <button id="resetJarBtn" class="text-romantic-rose hover:text-white underline transition active:scale-95 cursor-pointer" title="Kavanozu Yeniden Doldur">
+          🔄 Kavanozu Yeniden Doldur
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alt Bilgi -->
+  <footer class="relative z-20 text-center py-2.5 text-[11px] text-romantic-softdark/65">
+    <p>Sonsuz sevgi ve özenle hazırlandı • Her gün tebessüm etmen için ❤️</p>
+  </footer>
+
+  <!-- JAVASCRIPT: 150 ÖZEL AŞK NOTU & İNTERAKTİF MOTOR -->
+  <script>
+    /* 150 ÖZEL, ŞİİRSEL VE DERİN TÜRKÇE AŞK NOTU KOLEKSİYONU */
+    const RAW_150_NOTES = [
+  {
+    "category": "guzellik",
+    "text": "Bir şeye tüm içtenliğinle güldüğünde v gülüşünün olması ve benimde buna aşık olup tüm dünyamı aydınlatman"
+  },
+  {
+    "category": "hosluk",
+    "text": "Bana beklenmedik bir anda beni sinir ettiğin o minik saniyeler. Seviyorum çünkü hayatıma enerji katıyorsun"
+  },
+  {
+    "category": "guzellik",
+    "text": "Komik bir şey anlatırken dayanamayıp cümlenin tam ortasında kahkahaya hahahaha şeklinde boğulman."
+  },
+  {
+    "category": "guzellik",
+    "text": "Sabahları yeni uyandığında çok güzel olup şiş yanaklı olup uykulu halinle konuşma anın"
+  },
+  {
+    "category": "guzellik",
+    "text": "Gözlerimin içine baktığında sanki içimdeki tüm sakinliği tek bir bakışla enerjik halime çevirip dünyama renk katman."
+  },
+  {
+    "category": "guzellik",
+    "text": "Utandığında veya hafifçe kızardığında başını öne utanma bakışı atıp dudaklarının kenarıyla gülümseyişin."
+  },
+  {
+    "category": "guzellik",
+    "text": "Ben bir sakarlık veya saçmalık yaptığımda dayanamayıp gülüşün."
+  },
+  {
+    "category": "guzellik",
+    "text": "Gülüşünün sesinin odanın içini doldurduğu anlarda bana hissettirdiği o sonsuz yaşama sevinci."
+  },
+  {
+    "category": "guzellik",
+    "text": "Beni uzaktan gördüğün ilk saniyede yüzünde beliren o saf ve tanıdık ışık."
+  },
+  {
+    "category": "guzellik",
+    "text": "Fotoğraf çektirirken o samimi, içten ve hiçbir zorlama barındırmayan cici bakışlı doğal tebessümün."
+  },
+  {
+    "category": "guzellik",
+    "text": "Gözlerinin renginin gün ışığında aldığı o eşsiz ve sıcacık zeytin tonu."
+  },
+  {
+    "category": "guzellik",
+    "text": "Sadece ikimizin anladığı bir espriye kalabalığın içinde sessizce göz göze gelip gülüşümüz."
+  },
+  {
+    "category": "guzellik",
+    "text": "Bir şeye hayranlıkla bakarken göz bebeklerinde parlayan o çocuksu pırıltı."
+  },
+  {
+    "category": "guzellik",
+    "text": "Beni güldürmek için bilerek yaptığın o komik mimiklerin tatlılığı."
+  },
+  {
+    "category": "guzellik",
+    "text": "Yüzünün her bir kıvrımının, gülümsediğinde adeta bir sanat eserine dönüşmesi."
+  },
+  {
+    "category": "guzellik",
+    "text": "Gözlerini kısıp dikkatle bir şeye odaklandığındaki o sevimli ciddiyetin."
+  },
+  {
+    "category": "guzellik",
+    "text": "Sana baktığımda dünyanın geri kalanı yavaşça siliniyor, geriye sadece senin ışığın kalıyor."
+  },
+  {
+    "category": "guzellik",
+    "text": "Gülüşünün bana en kötü günümde bile dünyadaki her şeyin düzelebileceğini hatırlatması."
+  },
+  {
+    "category": "guzellik",
+    "text": "Bir şarkıya eşlik ederken bana bakıp gözlerini kırpman."
+  },
+  {
+    "category": "guzellik",
+    "text": "Beni öptükten hemen sonra yüzünde beliren o tatlı, utangaç ve huzurlu tebessüm."
+  },
+  {
+    "category": "guzellik",
+    "text": "Gözlerinin içindeki o derinlikte kaybolmanın bana verdiği tarifsiz mutluluk."
+  },
+  {
+    "category": "guzellik",
+    "text": "Uykudan hemen önce söylediğin son cümlenin ardındaki o yumuşacık gülüş."
+  },
+  {
+    "category": "guzellik",
+    "text": "Sen güldüğünde içimde kelebeklerin değil, koskoca bir baharın uyanması."
+  },
+  {
+    "category": "guzellik",
+    "text": "Dünyadaki en güzel kız olman"
+  },
+  {
+    "category": "guzellik",
+    "text": "Yüzündeki tebessümün, benim bu hayattaki en büyük sığınağım olması."
+  },
+  {
+    "category": "hosluk",
+    "text": "En küçük bir canlının ya da yardıma muhtaç birinin halini hemen fark eden o saf ve derin şefkatin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Yorulmuş ya da kırılmış olsan bile bana karşı koruduğun o zarif ve asil nezaketin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Beni dinlerken sadece kelimelerimi değil, söyleyemediğim duygularımı bile kalbinden anlaman."
+  },
+  {
+    "category": "hosluk",
+    "text": "Tutkulu olduğun bir hayalinden bahsederken içindeki o inanç ve sönmeyen ateş."
+  },
+  {
+    "category": "hosluk",
+    "text": "Kimse görmüyorken bile sergilediğin o dürüst, adil ve vicdanlı duruşun."
+  },
+  {
+    "category": "hosluk",
+    "text": "Zorluklar karşısında gösterdiğin o cici ve bebi gücün"
+  },
+  {
+    "category": "hosluk",
+    "text": "Kendi hatalarını olgunlukla kabul edebilmen ve her gün daha iyi biri olmak için çabalaman."
+  },
+  {
+    "category": "hosluk",
+    "text": "Etrafındaki insanların hayatına dokunurken arkasında hiçbir çıkar taşımayan saf niyetin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Benim hedeflerime ve hayallerime benden bile daha çok inanıp beni yüreklendirmen."
+  },
+  {
+    "category": "hosluk",
+    "text": "Küçük şeylerden büyük mutluluklar çıkarabilen o temiz ve kanaatkar ruhun."
+  },
+  {
+    "category": "hosluk",
+    "text": "Fikirlerini savunurken gösterdiğin zarafet ve saygı."
+  },
+  {
+    "category": "hosluk",
+    "text": "İçindeki o iyilik duygusunu dünyanın tüm kabalıklarına rağmen asla kaybetmeyişin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Bana her gün daha enerjik, daha hayatın keyifini çıkarmayı ve daha iyi bir insan olmayı ilham etmen."
+  },
+  {
+    "category": "hosluk",
+    "text": "Kırgın olduğunda bile kabalaşmayan, içindeki zarafeti daima muhafaza eden dilin :)))))))))."
+  },
+  {
+    "category": "hosluk",
+    "text": "Zamanın ve ilginin en kıymetli hediye olduğunu bilip bana bunu cömertçe vermen."
+  },
+  {
+    "category": "hosluk",
+    "text": "Karşılaştığın her insanın içindeki iyiliği görmeye çalışan o temiz bakış açın."
+  },
+  {
+    "category": "hosluk",
+    "text": "Kendi sınırlarını ve değerlerini bilen, dik ve onurlu duruşun."
+  },
+  {
+    "category": "hosluk",
+    "text": "Ben tökezlediğimde beni yargılamak yerine elimi daha sıkı tutan kalbin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Sıradan bir günü bile varlığınla çok özel ve anlamlı kılabilme yeteneğin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Kendinle barışık olman ve doğallığını hiçbir yapaylığa değişmeyişin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Sevdiğin insanları korumak ve sarıp sarmalamak için gösterdiğin o kocaman fedakarlık."
+  },
+  {
+    "category": "hosluk",
+    "text": "Sana emanet edilen her sırrı ve duyguyu bir hazine gibi saklayan güvenilirliğin."
+  },
+  {
+    "category": "hosluk",
+    "text": "Hayatın iniş çıkışlarında bile zarafetini ve şükrünü kaybetmeyen olgunluğun."
+  },
+  {
+    "category": "hosluk",
+    "text": "Benimle konuşurken gözlerimin içine bakarak hissettirdiğin o tam mevcudiyet."
+  },
+  {
+    "category": "hosluk",
+    "text": "Kalbinin güzelliğinin yüzüne bir nur gibi yansıması."
+  },
+  {
+    "category": "bebi",
+    "text": "Hiçbir şey konuşmadan sadece yan yana oturduğumuz anlarda bile içimi kaplayan derin ev huzuru."
+  },
+  {
+    "category": "bebi",
+    "text": "Sesini duyduğum anda günün bütün yorgunluğunun ve stresinin birkaç saniyede eriyip gitmesi."
+  },
+  {
+    "category": "bebi",
+    "text": "Yolda yürürken parmaklarımızın birbirine kenetlenmesi ve elimi sıcacık kavrayışın."
+  },
+  {
+    "category": "bebi",
+    "text": "Başımı göğsüne yasladığımda dünyadaki bütün karmaşanın ve gürültünün tamamen susması."
+  },
+  {
+    "category": "bebi",
+    "text": "Bana baktığında kendimi dünyanın en değerli ve en güvende insanı gibi hissettirmen."
+  },
+  {
+    "category": "bebi",
+    "text": "Sadece senin yanında hiçbir maske takmadan, tamamen kendim gibi olabilmenin hafifliği."
+  },
+  {
+    "category": "bebi",
+    "text": "Yağmurlu bir günde seninle bir bardak kahve paylaşıp sessizce yağmuru dinlemenin dinginliği."
+  },
+  {
+    "category": "bebi",
+    "text": "Gözlerimi kapattığımda aklıma gelen ilk ve en güvenli limanın senin kalbin olması."
+  },
+  {
+    "category": "bebi",
+    "text": "Bana sarıldığında kalbinin atışını hissetmek ve 'evimdeyim' diyebilmek."
+  },
+  {
+    "category": "bebi",
+    "text": "En telaşlı anlarımda bile tek bir dokunuşunla ruhuma kattığın o sakinleştirici dalga."
+  },
+  {
+    "category": "bebi",
+    "text": "Birlikte yürüdüğümüz sıradan bir sokağı bile hafızamda cennet köşesine dönüştürebilmen."
+  },
+  {
+    "category": "bebi",
+    "text": "Geceleri uyumadan önce bana söylediğin o sıcacık 'iyi geceler' dileğinin içimi ısıtması."
+  },
+  {
+    "category": "bebi",
+    "text": "Dünyanın bütün ağırlığını seninle yan yanayken tek bir tebessümle unutabilmem."
+  },
+  {
+    "category": "bebi",
+    "text": "Varlığının bana verdiği o sarsılmaz aidiyet ve tamamlanmışlık hissi."
+  },
+  {
+    "category": "bebi",
+    "text": "Birlikteyken zamanın nasıl aktığını unutturan o büyülü akış."
+  },
+  {
+    "category": "bebi",
+    "text": "Zor bir günün ardından sadece yanına gelip sana sarılmanın hayaliyle güç bulmam."
+  },
+  {
+    "category": "bebi",
+    "text": "Bana hissettirdiğin bu huzurun, dünyadaki hiçbir maddi zenginlikle ölçülemeyecek oluşu."
+  },
+  {
+    "category": "bebi",
+    "text": "Kokunun üzerime sinmesi ve gün boyu seninleymişim gibi hissettirmesi."
+  },
+  {
+    "category": "bebi",
+    "text": "En sessiz anlarımızda bile birbirimizin ruhunu duyabiliyor oluşumuz."
+  },
+  {
+    "category": "bebi",
+    "text": "Seninleyken geleceğe dair hiçbir korku veya kaygı hissetmeyişim."
+  },
+  {
+    "category": "bebi",
+    "text": "Birbirimizin ellerini tuttuğumuzda her şeyin yoluna gireceğine dair duyduğum mutlak inanç."
+  },
+  {
+    "category": "bebi",
+    "text": "Yanında nefes almanın bile başka hiçbir yerde olmadığı kadar ferah olması."
+  },
+  {
+    "category": "bebi",
+    "text": "Gözlerinin derinliğinde bulduğum o sonsuz şefkat ve kabulleniş."
+  },
+  {
+    "category": "bebi",
+    "text": "Senin varlığının hayatımın en güzel dengesi ve pusulası olması."
+  },
+  {
+    "category": "bebi",
+    "text": "Bana verdiğin bu huzurun her geçen gün daha da derinleşmesi ve kök salması."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Her şey üst üste geldiğinde derin bir nefes al: Sen düşündüğünden çok daha güçlüsün ve ben hep yanındayım."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Bugün işler istediğin gibi gitmemiş olabilir ama unutma; sen birinin bu hayattaki en büyük mucizesisin."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Mükemmel olmak zorunda değilsin; yorgun, kırgın ya da eksik hissettiğin anlarda bile çok özelsin."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Canını sıkan her şey geçecek. Elini kalbine koy; o kalbin güzelliği her karanlığı aydınlatmaya yeter."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Bazen sadece durmak ve hiçbir şey yapmamak gerekir. Bugün kendine yüklenme, dinlenmene bak."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Gözyaşların bile senin kalbinin ne kadar derin ve hassas olduğunun bir göstergesi. Ağlamak istersen omzum senin."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Yarın yepyeni bir sayfa açılacak ve o sayfada elini sımsıkı tutan biri olacak."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Dünyanın karmaşası bazen seni yorabilir ama unutma, senin içinde hiçbir şeyin kirletemeyeceği saf bir ışık var."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Şu an yanında olamasam bile kalbimin her atışında senin yanındayım, bunu asla unutma."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Sen bugüne kadar neleri aştın, bunu da aşacaksın. Kendine güven; ben sana sonsuz güveniyorum."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Kendini yalnız ya da çaresiz hissettiğin anlarda hatırla: Benim dualarım ve sevgim daima senin etrafında."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Bütün dünya üzerine gelse bile arkana döndüğünde seni dimdik saracak kollarım var."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Bugün kötü bir gün olabilir ama bu kötü bir hayatın olduğu anlamına gelmez sevgilim."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Gözlerini kapa, derin bir nefes al ve benim sana sımsıkı sarıldığımı hayal et."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Başarısız hissettiğin her an, bugüne kadar gösterdiğin cesareti ve aldığın yolları hatırla."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Sen benim için bu dünyadaki en kıymetli hazinesin; hiçbir olumsuzluk bunu değiştiremez."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Düşmene izin veririm ama orada kalmana asla izin vermem; hep birlikte kalkacağız."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Kafanın içindeki o yorucu düşünceleri biraz sustur ve sadece sana olan sevgimin sıcaklığına odaklan."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Yorgun kalbini bana yaslayabilirsin; senin yerine de yükleri taşımaya hazırım."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Gülümsemen geri gelene kadar sabırla başında beklemeye ve seni dinlemeye hazırım."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Bazen en güzel çiçekler en çetin fırtınaların ardından açar; sabret sevgilim."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Kendini değersiz hissettiren her şeyi bir kenara bırak; sen benim gözümde eşsizsin."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Senin tek bir saç teline gelebilecek üzüntüyü bile dünyalara değişmem."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Hadi şimdi derin bir nefes ver ve uyu; sabah her şey biraz daha hafiflemiş olacak."
+  },
+  {
+    "category": "iyimserlik",
+    "text": "Seni her halinle, en mutlu anından en kırılgan anına kadar aynı tutkuyla seviyorum."
+  },
+  {
+    "category": "cici",
+    "text": "İleride sakin bir balkonda seninle yan yana kahve yudumlarken sessizce hayallere dalacağımız günlerin hayali."
+  },
+  {
+    "category": "cici",
+    "text": "Birlikte keşfedeceğimiz tüm yeni şehirler, kaybolacağımız dar sokaklar ve biriktireceğimiz anılar..."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle yaşlanmanın, her yıl dönümünde aynı aşkla birbirimizin gözlerine bakmanın düşüncesi bile içimi titretiyor."
+  },
+  {
+    "category": "cici",
+    "text": "Kendi evimizde, mutfakta birlikte yemek yaparken arkadan çalan bir şarkıda dans edeceğimiz o günler."
+  },
+  {
+    "category": "cici",
+    "text": "Birlikte büyüyeceğimiz, birbirimizin hayallerine kanat olacağımız uzun ve aydınlık bir ömür."
+  },
+  {
+    "category": "cici",
+    "text": "Bir gün geriye dönüp baktığımızda 'iyi ki birbirimizin elini hiç bırakmamışız' diyeceğimiz o gurur."
+  },
+  {
+    "category": "cici",
+    "text": "Deniz kenarında oturup gün batımını izlerken başını omzuma yaslayacağın o sayısız akşam."
+  },
+  {
+    "category": "cici",
+    "text": "Evimizin duvarlarına birlikte asacağımız fotoğrafların ve kahkaha dolu hatıraların hayali."
+  },
+  {
+    "category": "cici",
+    "text": "Zor zamanlarda birbirimize siper olup her fırtınadan daha da güçlenerek çıkacağımız geleceğimiz."
+  },
+  {
+    "category": "cici",
+    "text": "Sabahları senin yüzünü görerek uyanmanın hayatımın değişmez rutini olacağı günlerin özlemi."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle birlikte dünyayı gezmek, bilmediğimiz lezzetleri tatmak ve hayatı doya doya yaşamak."
+  },
+  {
+    "category": "cici",
+    "text": "Yıllar sonra bile sana ilk günkü heyecanla 'iyi ki sen' diyebilecek olmanın mutluluğu."
+  },
+  {
+    "category": "cici",
+    "text": "Birlikte kuracağımız o sıcacık yuvanın her köşesinde senin zarafetinin izlerinin olması."
+  },
+  {
+    "category": "cici",
+    "text": "Gözlerimizin kenarında oluşacak yaşlılık çizgilerinin sadece birlikte güldüğümüz anlardan kalacak olması."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle paylaşılan sıradan bir pazar sabahının bile dünyanın en lüks tatilinden daha güzel olacağı inancı."
+  },
+  {
+    "category": "cici",
+    "text": "Her yeni yılda, saatler tam gece yarısını vurduğunda sarılacağım ilk insanın sen olması dileği."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle birlikte hayata karşı bir takım olmak ve her zorluğu birlikte göğüslemek."
+  },
+  {
+    "category": "cici",
+    "text": "Birlikte ekeceğimiz çiçeklerin büyümesini izlemek gibi sade ama derin mutluluklar."
+  },
+  {
+    "category": "cici",
+    "text": "Hayatımın geri kalanında atacağım her adımda senin elinin sıcaklığını hissetmek."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle birlikte yazacağımız bu hikayenin her sayfasının aşkla ve sadakatle dolu olması."
+  },
+  {
+    "category": "cici",
+    "text": "Birlikte izleyeceğimiz yüzlerce film, okuyacağımız kitaplar ve üzerine yapacağımız uzun sohbetler."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle aynı yastıkta huzurla uyuyup aynı umutla yeni güne uyanmak."
+  },
+  {
+    "category": "cici",
+    "text": "Hayallerimin merkezinde her zaman senin o güzel tebessümünün yer alması."
+  },
+  {
+    "category": "cici",
+    "text": "Seninle geçireceğim her bir saniyenin ömrümün en bereketli ve kıymetli zamanı olması."
+  },
+  {
+    "category": "cici",
+    "text": "Sonsuzluğun bile seninle yan yanayken kısa geleceğine olan inancım."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bir şeye odaklandığında npc gibi kalmanı yerim"
+  },
+  {
+    "category": "sekerlik",
+    "text": "Benim bile unuttuğum en ufak detayları hatırlayıp beni şaşırtman."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Üşüdüğünde ellerini montumun cebine sokuşturman ve parmaklarımı araman."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Sevdiğin bir yiyeceği yerken çıkardığın o minik mutlu sesler ve gözlerinin parlaması."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bana mesaj atarken kullandığın o kendine has emojiler ve hitap şeklin."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Uyurken yüzünde beliren o bebeksi, masum ve korumasız huzur ifadesi."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Saçlarını düzeltirken yaptığın o zarif el hareketi."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Birlikte müzik dinlerken en sevdiğin kısım geldiğinde dönüp bana bakman."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bana bir şey anlatırken ellerini kollarını heyecanla hareket ettirişin."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Kahveni veya çayını iki elinle bardağı sararak içmendeki o tatlı sevimlilik."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Ben hastalandığımda ya da yorgun olduğumda üzerime titreyip şefkatle ilgilenmen."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bir film izlerken sabırsız olman."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Yolda yürürken etrafa bakıp tatlı sohbet edişin."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Beni gördüğün an adımlarını hızlandırıp boynuma sarılman."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Adımı söylerken ses tonunun aldığı o sadece bana özel yumuşaklık."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bana aldığın en küçük bir hediyeyi bile günlerce düşünerek özenle seçişin."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Ben konuşurken gözlerimin içine dikkatle bakıp beni gerçekten hissetmen."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Seninle birlikte susmanın bile başka kimseyle konuşmaya benzememesi."
+  },
+  {
+    "category": "sekerlik",
+    "text": "İçten bir teşekkür ettiğinde gözlerindeki o saf samimiyet."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bana sarıldığında derin bir nefes alıp 'iyi ki geldin' hissiyatını vermen."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Birlikte saçmalamaktan hiç çekinmediğimiz o özgür anlar."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Bir şeyi çok beğendiğinde sevinçten yerinde hafifçe zıplayışın."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Sana baktığımı fark ettiğinde gözlerini kaçırıp sonra dayanamayıp gülümsemen."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Dünyadaki milyarlarca insan arasından tam da senin kalbinle buluşmuş olmamın mucizesi."
+  },
+  {
+    "category": "sekerlik",
+    "text": "Seninle geçen her günün, ömrümün en güzel şiirine dönüşmesi."
+  }
+];
+
+    /* NOT HAVUZU & LOCALSTORAGE YÖNETİMİ */
+    const STORAGE_KEY = 'bebinin_yil_donumu_kavanozu';
+    let notes = [];
+
+        function initializeNotes() {
+      try {
+        const savedRaw = localStorage.getItem(STORAGE_KEY);
+        let savedMap = {};
+        if (savedRaw) {
+          const parsed = JSON.parse(savedRaw);
+          if (Array.isArray(parsed)) {
+            parsed.forEach((n, idx) => {
+              const key = n.id || (idx + 1);
+              savedMap[key] = { opened: !!n.opened, favorite: !!n.favorite };
+            });
+          }
+        }
+
+        notes = RAW_150_NOTES.map((item, index) => {
+          const id = index + 1;
+          const prev = savedMap[id] || {};
+          return {
+            id: id,
+            category: item.category,
+            text: item.text,
+            favorite: prev.favorite || false,
+            opened: prev.opened || false
+          };
+        });
+        saveNotesToStorage();
+      } catch (err) {
+        notes = RAW_150_NOTES.map((item, index) => ({
+          id: index + 1,
+          category: item.category,
+          text: item.text,
+          favorite: false,
+          opened: false
+        }));
+      }
+    }
+
+    function saveNotesToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+      } catch (e) {
+        console.error('Kayıt hatası:', e);
+      }
+    }
+
+    /* KATEGORİ ADLARI VE ROZETLERİ */
+    const categoryInfo = {
+      'bebi': { name: '🧸 Bebi', color: 'bg-amber-100 text-amber-900 border-amber-300' },
+      'cici': { name: '🎀 Cici', color: 'bg-pink-100 text-pink-800 border-pink-300' },
+      'sekerlik': { name: '🍬 Şekerlik', color: 'bg-rose-100 text-rose-800 border-rose-300' },
+      'guzellik': { name: '💖 Güzellik', color: 'bg-purple-100 text-purple-900 border-purple-300' },
+      'hosluk': { name: '🌷 Hoşluk', color: 'bg-emerald-100 text-emerald-800 border-emerald-300' },
+      'iyimserlik': { name: '☀️ İyimserlik', color: 'bg-yellow-100 text-yellow-900 border-yellow-300' }
+    };
+
+    /* ORIGAMI RENKLERİ VE KAPSÜL İLLÜSTRASYONU */
+    const origamiColors = [
+      'bg-rose-200/90 border-rose-300 text-rose-800 shadow-rose-200/40',
+      'bg-amber-100/90 border-amber-300 text-amber-800 shadow-amber-200/40',
+      'bg-pink-200/90 border-pink-300 text-pink-800 shadow-pink-200/40',
+      'bg-orange-100/90 border-orange-200 text-orange-800 shadow-orange-200/40',
+      'bg-emerald-100/90 border-emerald-200 text-emerald-800 shadow-emerald-200/40',
+      'bg-purple-100/90 border-purple-200 text-purple-800 shadow-purple-200/40'
+    ];
+
+        function renderJarCapsules() {
+      const jarNotesPile = document.getElementById('jarNotesPile');
+      jarNotesPile.innerHTML = '';
+      const total = notes.length;
+      const unopened = notes.filter(n => !n.opened);
+      const remainingCount = unopened.length;
+
+      if (remainingCount === 0) {
+        const allDone = document.createElement('div');
+        allDone.className = 'w-full text-center py-4 px-2 text-[#FFE5D9]';
+        allDone.innerHTML = `
+          <div class="text-2xl animate-bounce mb-1">🎉💖</div>
+          <p class="text-[11px] font-serif font-bold text-amber-200">Tüm mektupları keşfettin!</p>
+          <p class="text-[9px] text-[#E8A598]">İstediğin zaman tekrar çekebilir veya defterinden okuyabilirsin 💕</p>
+        `;
+        jarNotesPile.appendChild(allDone);
+        updateCounters();
+        return;
+      }
+
+      // Kalan mektup oranına göre kapsül sayısını dinamik göster (min 4, max 36)
+      const displayCount = Math.max(4, Math.round((remainingCount / total) * 36));
+      for (let i = 0; i < displayCount; i++) {
+        const colorClass = origamiColors[i % origamiColors.length];
+        const rot = (Math.sin(i * 77) * 32).toFixed(1);
+        const yOffset = (Math.cos(i * 1.5) * 6).toFixed(1);
+        const el = document.createElement('div');
+        el.className = `w-6 h-4.5 sm:w-7 sm:h-5 rounded-[4px] border shadow-sm ${colorClass} flex items-center justify-center text-[7px] font-serif transition-transform duration-300 hover:scale-125`;
+        el.style.transform = `rotate(${rot}deg) translateY(${yOffset}px)`;
+        el.innerHTML = '💌';
+        jarNotesPile.appendChild(el);
+      }
+      updateCounters();
+    }
+
+    function updateCounters() {
+      const total = notes.length;
+      const openedCount = notes.filter(n => n.opened).length;
+      const remainingCount = total - openedCount;
+      const favCount = notes.filter(n => n.favorite).length;
+
+      const headerTotalNotes = document.getElementById('headerTotalNotes');
+      if (headerTotalNotes) headerTotalNotes.textContent = total;
+
+      const jarTagCount = document.getElementById('jarTagCount');
+      if (jarTagCount) jarTagCount.textContent = `${remainingCount} Kaldı`;
+
+      const jarRemainingCount = document.getElementById('jarRemainingCount');
+      if (jarRemainingCount) jarRemainingCount.textContent = `${remainingCount} Kaldı`;
+
+      const drawButtonText = document.getElementById('drawButtonText');
+      if (drawButtonText) {
+        drawButtonText.textContent = remainingCount === 0 ? 'Tüm Notlardan Tekrar Çek' : 'Kavanozdan Not Çek';
+      }
+
+      const readProgressText = document.getElementById('readProgressText');
+      if (readProgressText) {
+        if (remainingCount === 0) {
+          readProgressText.innerHTML = `🎉 <strong class="text-amber-300">Tüm ${total} mektup açıldı!</strong> • Tekrar çekebilirsin 💕`;
+        } else {
+          readProgressText.innerHTML = `<span class="font-bold text-romantic-rosedark">${openedCount}</span> / ${total} mektup açıldı • <span class="font-semibold text-romantic-deepwine">${remainingCount}</span> bekliyor 💕`;
+        }
+      }
+
+      const favBadgeCount = document.getElementById('favBadgeCount');
+      if (favBadgeCount) favBadgeCount.textContent = favCount;
+
+      const favFilterCount = document.getElementById('favFilterCount');
+      if (favFilterCount) favFilterCount.textContent = favCount;
+
+      const openedFilterCount = document.getElementById('openedFilterCount');
+      if (openedFilterCount) openedFilterCount.textContent = openedCount;
+    }
+
+        /* AUDIO & ROMANTİK MÜZİK MOTORU (MP3 + PİYANO SENTETİZÖRÜ) */
+    let audioCtx = null;
+    let isSoundOn = true; // Varsayılan olarak açık
+    let ambientInterval = null;
+    let isMp3Playing = false;
+    const bgMusic = document.getElementById('bgMusic');
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playTone(freq, type = 'sine', duration = 0.35, volume = 0.08) {
+      if (!isSoundOn) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch(e){}
+    }
+
+    function playChimeEffect() {
+      if (!isSoundOn) return;
+      const notesArray = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      notesArray.forEach((freq, idx) => {
+        setTimeout(() => playTone(freq, 'sine', 0.7, 0.07), idx * 100);
+      });
+    }
+
+    function playPaperUnfoldEffect() {
+      if (!isSoundOn) return;
+      playTone(280, 'triangle', 0.25, 0.05);
+      setTimeout(() => playTone(440, 'sine', 0.3, 0.07), 90);
+    }
+
+    function startAmbientPiano() {
+      if (!isSoundOn || isMp3Playing) return;
+      initAudio();
+      if (!ambientInterval) {
+        const playChord = () => {
+          if (!isSoundOn || isMp3Playing) return;
+          const romanticChords = [
+            [261.63, 329.63, 392.00, 523.25], // C major
+            [220.00, 261.63, 329.63, 440.00], // A minor
+            [174.61, 220.00, 261.63, 349.23], // F major
+            [196.00, 246.94, 293.66, 392.00]  // G major
+          ];
+          const chord = romanticChords[Math.floor(Math.random() * romanticChords.length)];
+          chord.forEach((freq, idx) => {
+            setTimeout(() => playTone(freq, 'sine', 2.2, 0.025), idx * 300);
+          });
+        };
+        playChord();
+        ambientInterval = setInterval(playChord, 5200);
+      }
+    }
+
+    function startMusic() {
+      isSoundOn = true;
+      updateSoundButtonUI(true);
+
+      // Önce MP3 çalmayı dene
+      if (bgMusic && bgMusic.src) {
+        bgMusic.play().then(() => {
+          isMp3Playing = true;
+          if (ambientInterval) {
+            clearInterval(ambientInterval);
+            ambientInterval = null;
+          }
+        }).catch(() => {
+          // MP3 bulunamazsa veya henüz başlamadıysa romantik piyano simülasyonunu çal
+          isMp3Playing = false;
+          startAmbientPiano();
+        });
+      } else {
+        startAmbientPiano();
+      }
+    }
+
+    function pauseMusic() {
+      isSoundOn = false;
+      isMp3Playing = false;
+      updateSoundButtonUI(false);
+      if (bgMusic) {
+        bgMusic.pause();
+      }
+      if (ambientInterval) {
+        clearInterval(ambientInterval);
+        ambientInterval = null;
+      }
+    }
+
+    function toggleAmbientSound() {
+      if (isSoundOn) {
+        pauseMusic();
+      } else {
+        startMusic();
+      }
+    }
+
+    function updateSoundButtonUI(isPlaying) {
+      const icon = document.getElementById('soundIcon');
+      const text = document.getElementById('soundText');
+      if (icon) icon.textContent = isPlaying ? '🎵' : '🔇';
+      if (text) text.textContent = isPlaying ? 'Melodi' : 'Sessiz';
+    }
+
+    /* KAVANOZDAN NOT ÇEKME & ANİMASYON */
+    let activeCategory = 'all';
+    let currentModalNoteId = null;
+    let isDrawing = false;
+    let typewriterTimer = null;
+
+    const jarContainer = document.getElementById('jarContainer');
+    const drawNoteBtn = document.getElementById('drawNoteBtn');
+    const corkStopper = document.getElementById('corkStopper');
+
+    function drawRandomNote() {
+      if (isDrawing) return;
+      isDrawing = true;
+
+      // Filtreye uygun havuzu belirle
+      let pool = notes;
+      if (activeCategory !== 'all') {
+        pool = notes.filter(n => n.category === activeCategory);
+      }
+      if (pool.length === 0) pool = notes;
+
+      // Öncelik: Henüz açılmamış olanları tercih et (deneyim zenginliği)
+      const unreadPool = pool.filter(n => !n.opened);
+      const chosenPool = unreadPool.length > 0 ? unreadPool : pool;
+      const randomNote = chosenPool[Math.floor(Math.random() * chosenPool.length)];
+
+      // Titreşim & Animasyon
+      jarContainer.classList.add('shake-jar');
+      corkStopper.classList.add('cork-animated');
+      if (navigator.vibrate) navigator.vibrate([40, 60, 40]);
+      playTone(180, 'sine', 0.35, 0.08);
+
+      // Partikül patlaması
+      createSparkleBurst(window.innerWidth / 2, window.innerHeight / 2);
+
+      setTimeout(() => {
+        jarContainer.classList.remove('shake-jar');
+        corkStopper.classList.remove('cork-animated');
+
+        randomNote.opened = true;
+        saveNotesToStorage();
+        renderJarCapsules();
+        updateCounters();
+
+        openNoteModal(randomNote);
+        playPaperUnfoldEffect();
+        isDrawing = false;
+      }, 700);
+    }
+
+    /* POPUP AÇMA & DAKTİLO EFEKTİ */
+    const noteModal = document.getElementById('noteModal');
+    const noteCard = document.getElementById('noteCard');
+    const modalCategoryBadge = document.getElementById('modalCategoryBadge');
+    const modalNoteIndex = document.getElementById('modalNoteIndex');
+    const modalNoteText = document.getElementById('modalNoteText');
+    const modalFavBtn = document.getElementById('modalFavBtn');
+    const modalFavHeart = document.getElementById('modalFavHeart');
+    const modalFavText = document.getElementById('modalFavText');
+
+    function openNoteModal(note) {
+      currentModalNoteId = note.id;
+      const cat = categoryInfo[note.category] || { name: '💖 Özel Sevgi Notu', color: 'bg-rose-100 text-rose-800' };
+      modalCategoryBadge.textContent = cat.name;
+      modalNoteIndex.textContent = `#${note.id < 10 ? '0' + note.id : note.id}`;
+
+      updateModalFavButton(note.favorite);
+
+      // Daktilo efekti başlat
+      startTypewriterEffect(`"${note.text}"`);
+
+      noteModal.classList.remove('opacity-0', 'pointer-events-none');
+      noteModal.classList.add('opacity-100');
+      noteCard.classList.remove('scale-90', 'translate-y-6');
+      noteCard.classList.add('scale-100', 'translate-y-0');
+    }
+
+    function startTypewriterEffect(fullText) {
+      if (typewriterTimer) clearInterval(typewriterTimer);
+      modalNoteText.textContent = '';
+      modalNoteText.classList.add('typewriter-cursor');
+
+      let charIndex = 0;
+      const speed = fullText.length > 90 ? 20 : 28; // Uzun metinler biraz daha hızlı aksın
+
+      typewriterTimer = setInterval(() => {
+        if (charIndex < fullText.length) {
+          modalNoteText.textContent += fullText.charAt(charIndex);
+          charIndex++;
+          if (charIndex % 4 === 0) {
+            playTone(420 + (charIndex % 3) * 30, 'sine', 0.04, 0.015);
+          }
+        } else {
+          clearInterval(typewriterTimer);
+          modalNoteText.classList.remove('typewriter-cursor');
+        }
+      }, speed);
+    }
+
+    function closeNoteModal() {
+      if (typewriterTimer) clearInterval(typewriterTimer);
+      modalNoteText.classList.remove('typewriter-cursor');
+      noteCard.classList.remove('scale-100', 'translate-y-0');
+      noteCard.classList.add('scale-90', 'translate-y-6');
+      noteModal.classList.remove('opacity-100');
+      noteModal.classList.add('opacity-0', 'pointer-events-none');
+      playTone(320, 'sine', 0.15, 0.04);
+    }
+
+    function updateModalFavButton(isFav) {
+      if (isFav) {
+        modalFavHeart.textContent = '❤️';
+        modalFavText.textContent = 'Favorilerinde';
+        modalFavBtn.classList.add('bg-rose-50', 'border-rose-300', 'is-favorited');
+      } else {
+        modalFavHeart.textContent = '🤍';
+        modalFavText.textContent = 'Favorilerime Ekle';
+        modalFavBtn.classList.remove('bg-rose-50', 'border-rose-300', 'is-favorited');
+      }
+    }
+
+    modalFavBtn.addEventListener('click', () => {
+      const note = notes.find(n => n.id === currentModalNoteId);
+      if (!note) return;
+      note.favorite = !note.favorite;
+      updateModalFavButton(note.favorite);
+      saveNotesToStorage();
+      updateCounters();
+      if (note.favorite) {
+        playTone(660, 'sine', 0.25, 0.08);
+        createSparkleBurst(window.innerWidth / 2, window.innerHeight / 2);
+      }
+    });
+document.getElementById('modalNextBtn').addEventListener('click', () => {
+      closeNoteModal();
+      setTimeout(drawRandomNote, 250);
+    });
+
+    document.getElementById('modalCloseBtn').addEventListener('click', closeNoteModal);
+    noteModal.addEventListener('click', (e) => {
+      if (e.target === noteModal) closeNoteModal();
+    });
+
+    /* FİLTRE BUTONLARI */
+    const filterChips = document.querySelectorAll('.filter-chip');
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('active', 'bg-romantic-deepwine', 'text-white', 'shadow-sm');
+          c.classList.add('bg-white/80', 'text-romantic-softdark');
+        });
+        chip.classList.add('active', 'bg-romantic-deepwine', 'text-white', 'shadow-sm');
+        chip.classList.remove('bg-white/80', 'text-romantic-softdark');
+        activeCategory = chip.getAttribute('data-category');
+        playTone(420, 'sine', 0.1, 0.04);
+      });
+    });
+
+        /* ANI DEFTERİ (DRAWER) */
+    const openNotebookBtn = document.getElementById('openNotebookBtn');
+    const closeNotebookBtn = document.getElementById('closeNotebookBtn');
+    const notebookModal = document.getElementById('notebookModal');
+    const notebookDrawer = document.getElementById('notebookDrawer');
+    const notebookNotesList = document.getElementById('notebookNotesList');
+    const tabShowFavorites = document.getElementById('tabShowFavorites');
+    const tabShowOpened = document.getElementById('tabShowOpened');
+    const resetJarBtn = document.getElementById('resetJarBtn');
+    let isNotebookTabFav = false; // Varsayılan olarak Açılan Mektupları göster
+
+    function selectNotebookTab(isFav) {
+      isNotebookTabFav = isFav;
+      if (isFav) {
+        tabShowFavorites.classList.add('bg-romantic-rosedark', 'text-white');
+        tabShowFavorites.classList.remove('bg-white', 'text-romantic-softdark');
+        tabShowOpened.classList.remove('bg-romantic-rosedark', 'text-white');
+        tabShowOpened.classList.add('bg-white', 'text-romantic-softdark');
+      } else {
+        tabShowOpened.classList.add('bg-romantic-rosedark', 'text-white');
+        tabShowOpened.classList.remove('bg-white', 'text-romantic-softdark');
+        tabShowFavorites.classList.remove('bg-romantic-rosedark', 'text-white');
+        tabShowFavorites.classList.add('bg-white', 'text-romantic-softdark');
+      }
+      renderNotebookList();
+    }
+
+    function renderNotebookList() {
+      notebookNotesList.innerHTML = '';
+      const list = isNotebookTabFav ? notes.filter(n => n.favorite) : notes.filter(n => n.opened);
+
+      if (list.length === 0) {
+        notebookNotesList.innerHTML = `
+          <div class="text-center py-12 text-romantic-softdark/50">
+            <p class="text-3xl mb-2">${isNotebookTabFav ? '🤍' : '📖'}</p>
+            <p class="text-sm font-medium">${isNotebookTabFav ? 'Henüz favorilerine bir not kaydetmedin.' : 'Henüz kavanozdan bir not açmadın.'}</p>
+            <p class="text-xs text-romantic-rosedark mt-2">Kavanoza dokunarak mektupları keşfetmeye başla!</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach(note => {
+        const item = document.createElement('div');
+        const cat = categoryInfo[note.category] || { name: 'Özel Not' };
+        item.className = 'p-3.5 rounded-xl bg-white border border-romantic-rose/30 shadow-sm flex flex-col gap-1.5 transition hover:shadow-md';
+        item.innerHTML = `
+          <div class="flex items-center justify-between text-[11px] text-romantic-softdark/65 font-medium">
+            <span class="font-bold">${cat.name} (#${note.id})</span>
+            <button class="toggle-fav-inline text-sm hover:scale-125 transition active:scale-95 cursor-pointer" data-id="${note.id}" title="${note.favorite ? 'Favorilerden çıkar' : 'Favorilere ekle'}">
+              ${note.favorite ? '❤️' : '🤍'}
+            </button>
+          </div>
+          <p class="font-serif italic text-sm text-romantic-deepwine leading-relaxed">"${note.text}"</p>
+        `;
+        notebookNotesList.appendChild(item);
+      });
+
+      document.querySelectorAll('.toggle-fav-inline').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          const note = notes.find(n => n.id === id);
+          if (note) {
+            note.favorite = !note.favorite;
+            saveNotesToStorage();
+            updateCounters();
+            renderNotebookList();
+          }
+        });
+      });
+    }
+
+    openNotebookBtn.addEventListener('click', () => {
+      // Eğer hiç favori yok ama açılmış notlar varsa, açılan mektuplar sekmesini aç
+      const openedCount = notes.filter(n => n.opened).length;
+      const favCount = notes.filter(n => n.favorite).length;
+      if (favCount === 0 && openedCount > 0) {
+        selectNotebookTab(false);
+      } else {
+        selectNotebookTab(isNotebookTabFav);
+      }
+      notebookModal.classList.remove('opacity-0', 'pointer-events-none');
+      notebookDrawer.classList.remove('translate-x-full');
+    });
+
+    closeNotebookBtn.addEventListener('click', () => {
+      notebookDrawer.classList.add('translate-x-full');
+      notebookModal.classList.add('opacity-0', 'pointer-events-none');
+    });
+
+    notebookModal.addEventListener('click', (e) => {
+      if (e.target === notebookModal) {
+        notebookDrawer.classList.add('translate-x-full');
+        notebookModal.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+
+    tabShowFavorites.addEventListener('click', () => selectNotebookTab(true));
+    tabShowOpened.addEventListener('click', () => selectNotebookTab(false));
+
+    if (resetJarBtn) {
+      resetJarBtn.addEventListener('click', () => {
+        const confirmed = confirm("Kavanozdaki tüm mektuplar tekrar açılmamış olarak kavanoza dönsün mü?\n\n(Not: Kalbine kaydettiğin favori notların silinmez.)");
+        if (confirmed) {
+          notes.forEach(n => n.opened = false);
+          saveNotesToStorage();
+          renderJarCapsules();
+          renderNotebookList();
+          updateCounters();
+          playChimeEffect();
+          createSparkleBurst(window.innerWidth / 2, window.innerHeight / 2);
+        }
+      });
+    }
+
+    /* MUM IŞIĞI MODU (VARSAYILAN AKTİF) */
+    const candlelightToggleBtn = document.getElementById('candlelightToggleBtn');
+    let isCandlelight = true;
+    candlelightToggleBtn.addEventListener('click', () => {
+      isCandlelight = !isCandlelight;
+      document.body.classList.toggle('candlelight-mode', isCandlelight);
+      document.getElementById('themeIcon').textContent = isCandlelight ? '☀️' : '🕯️';
+      const themeText = document.getElementById('themeText');
+      if (themeText) themeText.textContent = isCandlelight ? 'Gündüz' : 'Mum Işığı';
+      playTone(isCandlelight ? 360 : 480, 'sine', 0.12, 0.04);
+    });
+
+    /* BUTON BAĞLANTILARI */
+    document.getElementById('soundToggleBtn').addEventListener('click', toggleAmbientSound);
+    drawNoteBtn.addEventListener('click', drawRandomNote);
+    jarContainer.addEventListener('click', drawRandomNote);
+
+    /* PARTİKÜL & SÜZÜLEN KALPLER TUVALİ */
+    const canvas = document.getElementById('sparkleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor(x, y, isHeart = false) {
+        this.x = x || Math.random() * canvas.width;
+        this.y = y || canvas.height + Math.random() * 20;
+        this.size = Math.random() * 3.2 + 1.8;
+        this.speedY = Math.random() * -1.2 - 0.35;
+        this.speedX = (Math.random() - 0.5) * 0.85;
+        this.alpha = Math.random() * 0.7 + 0.3;
+        this.isHeart = isHeart || Math.random() > 0.82;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.alpha -= 0.003;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        if (this.isHeart) {
+          ctx.fillStyle = '#E8A598';
+          ctx.font = `${this.size * 3.5}px serif`;
+          ctx.fillText('♥', this.x, this.y);
+        } else {
+          ctx.fillStyle = '#F4C430';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+
+    function createSparkleBurst(x, y) {
+      for (let i = 0; i < 26; i++) {
+        const p = new Particle(x, y, i % 2 === 0);
+        p.speedX = (Math.random() - 0.5) * 6;
+        p.speedY = (Math.random() - 0.5) * 6;
+        particles.push(p);
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (particles.length < 35 && Math.random() < 0.3) {
+        particles.push(new Particle());
+      }
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].alpha <= 0 || particles[i].y < -20) {
+          particles.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    
+    /* 2026 4. YIL DÖNÜMÜ GİRİŞ ANİMASYONU */
+    const anniversaryIntroOverlay = document.getElementById('anniversaryIntroOverlay');
+    const anniversaryIntroCard = document.getElementById('anniversaryIntroCard');
+    const enterJarBtn = document.getElementById('enterJarBtn');
+    const headerAnniversaryIcon = document.getElementById('headerAnniversaryIcon');
+
+    function closeAnniversaryIntro() {
+      if (!anniversaryIntroOverlay) return;
+      startMusic();
+      playChimeEffect();
+      
+      // Çoklu romantik partikül patlaması
+      createSparkleBurst(window.innerWidth * 0.35, window.innerHeight * 0.4);
+      createSparkleBurst(window.innerWidth * 0.65, window.innerHeight * 0.4);
+      createSparkleBurst(window.innerWidth * 0.5, window.innerHeight * 0.5);
+
+      anniversaryIntroCard.classList.add('scale-110', 'opacity-0');
+      anniversaryIntroOverlay.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        anniversaryIntroOverlay.style.display = 'none';
+      }, 950);
+    }
+
+    function openAnniversaryIntro() {
+      if (!anniversaryIntroOverlay) return;
+      anniversaryIntroOverlay.style.display = 'flex';
+      setTimeout(() => {
+        anniversaryIntroOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        anniversaryIntroCard.classList.remove('scale-110', 'opacity-0');
+      }, 20);
+      playChimeEffect();
+    }
+
+    if (enterJarBtn) {
+      enterJarBtn.addEventListener('click', closeAnniversaryIntro);
+    }
+
+    if (headerAnniversaryIcon) {
+      headerAnniversaryIcon.addEventListener('click', openAnniversaryIntro);
+    }
+
+
+    /* SERVICE WORKER KAYDI (ÇEVRİMDIŞI ÇALIŞMA) */
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => {
+          console.log('SW registration error:', err);
+        });
+      });
+    }
+
+    /* PWA & IPHONE YÜKLEME YÖNETİMİ */
+    let deferredPrompt = null;
+    const installAppBtn = document.getElementById('installAppBtn');
+    const iosInstallModal = document.getElementById('iosInstallModal');
+    const closeIosInstallModalBtn = document.getElementById('closeIosInstallModalBtn');
+
+    // Eğer zaten bağımsız mobil uygulama (PWA) olarak açıldıysa yükle butonunu gizle
+    const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+    if (isStandalone && installAppBtn) {
+      installAppBtn.style.display = 'none';
+    }
+
+    // Android / Chrome yükleme olayını dinle
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    if (installAppBtn) {
+      installAppBtn.addEventListener('click', () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              installAppBtn.style.display = 'none';
+            }
+            deferredPrompt = null;
+          });
+        } else {
+          // iPhone / Safari veya Desktop için rehberi göster
+          iosInstallModal.classList.remove('opacity-0', 'pointer-events-none');
+          playTone(480, 'sine', 0.15, 0.05);
+        }
+      });
+    }
+
+    if (closeIosInstallModalBtn) {
+      closeIosInstallModalBtn.addEventListener('click', () => {
+        iosInstallModal.classList.add('opacity-0', 'pointer-events-none');
+      });
+    }
+    if (iosInstallModal) {
+      iosInstallModal.addEventListener('click', (e) => {
+        if (e.target === iosInstallModal) {
+          iosInstallModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+    }
+
+    /* BAŞLANGIÇ */
+    
+    /* OTOMATİK MÜZİK BAŞLATMA (İLK ETKİLEŞİMDE ANINDA ÇAL) */
+    function tryAutoPlayMusic() {
+      if (isSoundOn) {
+        startMusic();
+      }
+    }
+    window.addEventListener('click', tryAutoPlayMusic, { once: true });
+    window.addEventListener('touchstart', tryAutoPlayMusic, { once: true });
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      startMusic();
+      localStorage.removeItem('love_jar_partner_name');
+      initializeNotes();
+      renderJarCapsules();
+      animateParticles();
+    });
+  </script>
+</body>
+</html>
