@@ -65,6 +65,16 @@
   </script>
 
   <style>
+    html, body {
+      height: 100%;
+      height: 100dvh;
+      max-height: 100dvh;
+      overflow: hidden !important;
+      overscroll-behavior: none;
+      margin: 0;
+      padding: 0;
+      -webkit-touch-callout: none;
+    }
     * {
       -webkit-tap-highlight-color: transparent;
       user-select: none;
@@ -325,7 +335,7 @@
   </style>
 </head>
 
-<body class="candlelight-mode bg-romantic-cream text-romantic-softdark font-sans min-h-screen flex flex-col justify-between transition-colors duration-700 overflow-x-hidden relative">
+<body class="candlelight-mode bg-romantic-cream text-romantic-softdark font-sans h-[100dvh] max-h-[100dvh] overflow-hidden flex flex-col justify-between transition-colors duration-700 select-none relative">
 
   <!-- 2026 • 4. YIL DÖNÜMÜ GİRİŞ AÇILIŞ ANİMASYONU VE EFEKTİ -->
   <div id="anniversaryIntroOverlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#15080A] transition-all duration-1000 ease-out select-none">
@@ -385,7 +395,7 @@
   <canvas id="sparkleCanvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
 
   <!-- Üst Bar: Başlık, Müzik, Mum Işığı, İsmi Düzenle & Defter -->
-  <header class="relative z-20 w-full max-w-2xl mx-auto px-3 sm:px-4 pt-2.5 sm:pt-6 pb-1 sm:pb-2 flex items-center justify-between">
+  <header class="relative z-20 w-full max-w-2xl mx-auto px-3 sm:px-4 pt-2 sm:pt-4 pb-0.5 sm:pb-2 flex items-center justify-between shrink-0">
     <div class="flex items-center space-x-2">
       <span id="headerAnniversaryIcon" class="text-2xl animate-pulse cursor-pointer hover:scale-125 transition" title="4. Yıl Dönümü Kartı">💌</span>
       <div>
@@ -424,22 +434,22 @@
   </header>
 
   <!-- Ana Bölüm -->
-  <main class="relative z-20 flex-1 flex flex-col items-center justify-center max-w-xl mx-auto px-4 py-1 w-full text-center">
+  <main class="relative z-20 flex-1 min-h-0 flex flex-col justify-between items-center max-w-xl mx-auto px-3 sm:px-4 py-0.5 sm:py-2 w-full text-center">
     
     <!-- Romantik Alıntı & Yönlendirme -->
-    <div class="mb-2 space-y-1">
-      <p id="romanticQuote" class="font-serif italic text-lg sm:text-xl text-romantic-rosedark transition-opacity duration-500">
+    <div class="space-y-0.5 shrink-0 my-0.5">
+      <p id="romanticQuote" class="font-serif italic text-base sm:text-xl text-romantic-rosedark transition-opacity duration-500 leading-snug">
         "Gülüşünde saklı en güzel hikayem..."
       </p>
-      <p class="text-xs sm:text-sm text-romantic-softdark/75">
+      <p class="text-[11px] sm:text-xs text-romantic-softdark/75">
         Kavanoza dokun ya da şu anki hissine göre bir kategori seçip notunu aç.
       </p>
     </div>
 
     <!-- Mood / Kategori Kutucukları (Düzenli Izgara - Sağa Kaydırma Yok) -->
-    <div class="w-full max-w-md mx-auto my-1.5 px-2">
+    <div class="w-full max-w-md mx-auto my-0.5 sm:my-1 px-1 shrink-0">
       <!-- Ana Karışık Kutucuk -->
-      <button class="filter-chip active w-full mb-1.5 py-1.5 px-3 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-sm bg-romantic-deepwine text-white" data-category="all">
+      <button class="filter-chip active w-full mb-1 py-1 px-2.5 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-sm bg-romantic-deepwine text-white" data-category="all">
         <span>✨</span>
         <span>Hepsinden Karışık (Tüm Kavanoz)</span>
       </button>
@@ -474,20 +484,20 @@
     </div>
 
     <!-- İnteraktif Cam Kavanoz -->
-    <div class="relative w-52 sm:w-72 h-58 sm:h-84 my-0.5 sm:my-1 flex flex-col items-center justify-end group cursor-pointer" id="jarContainer" title="Kavanoza dokun ve aşk notunu aç!">
+    <div class="relative w-60 sm:w-72 h-[310px] sm:h-[350px] my-0.5 sm:my-1 flex flex-col items-center justify-end group cursor-pointer shrink-0" id="jarContainer" title="Kavanoza dokun ve aşk notunu aç!">
       
       <!-- Mantar Kapak (Cork Stopper) -->
-      <div id="corkStopper" class="w-28 sm:w-40 h-7 sm:h-9 rounded-t-xl bg-gradient-to-r from-[#ab7f56] via-[#c4986b] to-[#996e47] border-2 border-[#805530] shadow-md relative z-30 transition-transform duration-300">
+      <div id="corkStopper" class="w-32 sm:w-40 h-8 sm:h-9 rounded-t-xl bg-gradient-to-r from-[#ab7f56] via-[#c4986b] to-[#996e47] border-2 border-[#805530] shadow-md relative z-30 transition-transform duration-300">
         <!-- Mantar dokusu -->
         <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#5a391c_1.2px,transparent_1.2px)] [background-size:6px_6px]"></div>
         <!-- Kırmızı saten boyun kurdelesi ve fiyonk simülasyonu -->
-        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 sm:w-42 h-2.5 sm:h-3 bg-gradient-to-r from-[#8b263e] via-[#b23250] to-[#8b263e] rounded-full shadow z-30 flex items-center justify-center">
+        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-36 sm:w-42 h-2.5 sm:h-3 bg-gradient-to-r from-[#8b263e] via-[#b23250] to-[#8b263e] rounded-full shadow z-30 flex items-center justify-center">
           <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#fde047]/60 shadow-[0_0_6px_#fde047]"></div>
         </div>
       </div>
 
       <!-- Asılı Vintage Etiket (Hanging Tag) -->
-      <div class="absolute top-7 sm:top-12 -left-2 sm:-left-4 z-40 transform -rotate-12 hover:rotate-0 transition-transform duration-300 pointer-events-none">
+      <div class="absolute top-8 sm:top-11 -left-2 sm:-left-4 z-40 transform -rotate-12 hover:rotate-0 transition-transform duration-300 pointer-events-none">
         <div class="bg-romantic-parchment text-romantic-deepwine px-2 py-0.5 sm:px-3 sm:py-1 rounded-md border border-romantic-rose/50 shadow-md text-[10px] sm:text-[11px] font-serif font-bold tracking-wider flex items-center gap-1 whitespace-nowrap">
           <span>🏷️</span>
           <span id="jarTagText">Bebinin Kavanozu • 4. Yıl (<span id="jarTagCount">150 Kaldı</span>)</span>
@@ -495,12 +505,12 @@
         <div class="w-5 sm:w-7 h-3.5 sm:h-5 border-l-2 border-t-2 border-[#8b263e] ml-3 sm:ml-4 -mt-1 opacity-70"></div>
       </div>
 
-      <!-- Cam Kavanoz Gövdesi -->
-      <div id="jarBody" class="glass-jar shadow-jar relative w-48 sm:w-68 h-50 sm:h-74 rounded-b-[38px] sm:rounded-b-[48px] rounded-t-[12px] sm:rounded-t-[16px] flex flex-col justify-end p-2.5 sm:p-4 overflow-hidden transition-all duration-300">
+      <!-- Cam Kavanoz Gövdesi (Zarif ve Uzun Kavanoz) -->
+      <div id="jarBody" class="glass-jar shadow-jar relative w-56 sm:w-68 h-[270px] sm:h-[310px] rounded-b-[44px] sm:rounded-b-[50px] rounded-t-[14px] sm:rounded-t-[18px] flex flex-col justify-end p-2.5 sm:p-4 overflow-hidden transition-all duration-300">
         
         <!-- Cam Üzeri Işık Yansımaları -->
-        <div class="absolute top-3 left-4 w-4 h-48 bg-gradient-to-b from-white/80 via-white/20 to-transparent rounded-full blur-[1px] pointer-events-none"></div>
-        <div class="absolute top-5 right-4 w-1.5 h-36 bg-white/40 rounded-full blur-[0.5px] pointer-events-none"></div>
+        <div class="absolute top-3 left-4 w-4 h-[210px] bg-gradient-to-b from-white/80 via-white/20 to-transparent rounded-full blur-[1px] pointer-events-none"></div>
+        <div class="absolute top-5 right-4 w-1.5 h-[170px] bg-white/40 rounded-full blur-[0.5px] pointer-events-none"></div>
 
         <!-- Peri Işıkları (Fairy Lights) Parlamaları -->
         <div class="absolute inset-0 pointer-events-none">
@@ -512,7 +522,7 @@
         </div>
 
         <!-- İçerideki Rengarenk Katlanmış Origami Notlar -->
-        <div id="jarNotesPile" class="relative w-full h-42 flex flex-wrap-reverse items-end justify-center gap-1.5 pb-2">
+        <div id="jarNotesPile" class="relative w-full h-[180px] sm:h-[200px] flex flex-wrap-reverse items-end justify-center gap-1.5 pb-2">
           <!-- JS ile dinamik origami kapsülleri doldurulur -->
         </div>
 
@@ -521,19 +531,19 @@
       </div>
 
       <!-- Kavanoz Tabanı Yumuşak Gölgesi -->
-      <div class="w-48 h-4 bg-romantic-deepwine/20 rounded-full blur-md -mt-2"></div>
+      <div class="w-52 sm:w-64 h-4 bg-romantic-deepwine/20 rounded-full blur-md -mt-2"></div>
     </div>
 
     <!-- Aksiyon Butonu & İlerleme -->
-    <div class="mt-2 flex flex-col items-center gap-2">
-      <button id="drawNoteBtn" class="group relative px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full bg-gradient-to-r from-romantic-deepwine via-romantic-rosedark to-romantic-deepwine text-white font-medium text-xs sm:text-base shadow-lg shadow-romantic-rosedark/35 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2.5">
+    <div class="my-0.5 sm:my-1 shrink-0 flex flex-col items-center gap-1">
+      <button id="drawNoteBtn" class="group relative px-6 py-2 sm:px-8 sm:py-3 rounded-full bg-gradient-to-r from-romantic-deepwine via-romantic-rosedark to-romantic-deepwine text-white font-medium text-xs sm:text-base shadow-lg shadow-romantic-rosedark/35 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2.5">
         <span class="group-hover:rotate-12 transition-transform text-lg">✨</span>
         <span id="drawButtonText" class="font-semibold tracking-wide">Kavanozdan Not Çek</span>
         <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-mono font-bold" id="jarRemainingCount">150 Kaldı</span>
       </button>
 
       <!-- İlerleme -->
-      <div class="flex items-center justify-center text-xs text-romantic-softdark/75 mt-1 font-medium">
+      <div class="flex items-center justify-center text-[10px] sm:text-xs text-romantic-softdark/75 mt-0.5 font-medium">
         <span id="readProgressText">0 / 150 mektup açıldı • 150 bekliyor 💕</span>
       </div>
     </div>
@@ -651,7 +661,7 @@
   </div>
 
   <!-- Alt Bilgi -->
-  <footer class="relative z-20 text-center py-2.5 text-[11px] text-romantic-softdark/65">
+  <footer class="relative z-20 text-center py-1 sm:py-2 text-[10px] sm:text-[11px] text-romantic-softdark/65 shrink-0">
     <p>Sonsuz sevgi ve özenle hazırlandı • Her gün tebessüm etmen için ❤️</p>
   </footer>
 
